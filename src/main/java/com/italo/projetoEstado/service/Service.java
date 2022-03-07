@@ -18,10 +18,10 @@ public class Service {
 	@Transactional(readOnly = true)
 	public EstadoDTO getState(Long id) {
 		Optional<Estado> state = repository.findById(id);
-		Estado local = state.get();
 		if (!state.isPresent()) {
 			throw new RuntimeException();
 		}
+		Estado local = state.get();
 		return new EstadoDTO(local);
 	}
 
